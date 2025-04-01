@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {
   GbfPage,
   Gfl2Page,
@@ -12,11 +12,6 @@ import './App.css';
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   
-  // Determine if we're in production (GitHub Pages) or development
-  const basename = window.location.hostname === 'franzthevanguard.github.io' 
-    ? '/gacha-calc' 
-    : '';
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -27,7 +22,7 @@ function App() {
   };
 
   return (
-    <Router basename={basename}>
+    <Router>
       <div className="App">
         <nav className="nav-menu">
           <ul>
