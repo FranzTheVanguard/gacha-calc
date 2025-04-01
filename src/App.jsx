@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {
+  HomePage,
   GbfPage,
   Gfl2Page,
   NikkePage,
@@ -26,6 +27,7 @@ function App() {
       <div className="App">
         <nav className="nav-menu">
           <ul>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/gbf">GBF</Link></li>
             <li><Link to="/gfl2">GFL2</Link></li>
             <li><Link to="/nikke">Nikke</Link></li>
@@ -43,7 +45,7 @@ function App() {
           <Route path="/nikke" element={<NikkePage />} />
           <Route path="/hsr" element={<HsrPage />} />
           <Route path="/zzz" element={<ZzzPage />} />
-          <Route path="/" element={<GbfPage />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </div>
     </Router>

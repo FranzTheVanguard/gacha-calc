@@ -125,6 +125,7 @@
 }
 
 /* Game-specific page styles */
+.home-page,
 .gbf-page,
 .gfl2-page,
 .nikke-page,
@@ -138,4 +139,42 @@
   padding: 0;
   margin: 0;
   z-index: 0;
+}
+
+/* Add responsive styles for the navigation */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  
+  .nav-menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-menu li a {
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem;
+  }
+  
+  .theme-toggle {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Adjust game pages for mobile */
+@media (max-width: 768px) {
+  .home-page,
+  .gbf-page,
+  .gfl2-page,
+  .nikke-page,
+  .hsr-page,
+  .zzz-page {
+    overflow-y: auto;
+    position: absolute;
+    padding-top: 120px; /* Increased to accommodate the stacked nav menu */
+  }
 }
