@@ -11,6 +11,11 @@ import './App.css';
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  
+  // Determine if we're in production (GitHub Pages) or development
+  const basename = window.location.hostname === 'franzthevanguard.github.io' 
+    ? '/gacha-calc' 
+    : '';
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -22,7 +27,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <nav className="nav-menu">
           <ul>
