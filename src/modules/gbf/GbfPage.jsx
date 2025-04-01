@@ -28,7 +28,7 @@ const GbfPage = () => {
     return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
   };
 
-  // Save to localStorage whenever values change
+  //localStorage
   useEffect(() => {
     localStorage.setItem('gbf_crystals', crystals);
     localStorage.setItem('gbf_single_tickets', singleTickets);
@@ -36,7 +36,6 @@ const GbfPage = () => {
   }, [crystals, singleTickets, tenTickets]);
 
   useEffect(() => {
-    // Calculate total rolls
     const crystalRolls = Math.floor((parseInt(crystals) || 0) / 300);
     const singleRolls = parseInt(singleTickets) || 0;
     const tenRolls = (parseInt(tenTickets) || 0) * 10;
@@ -44,11 +43,10 @@ const GbfPage = () => {
     const total = crystalRolls + singleRolls + tenRolls;
     setTotalRolls(total);
     
-    // Calculate percentage (total rolls / 300) and round down
     const percent = Math.floor((total / 300) * 100);
     setPercentage(percent);
 
-    // Calculate color based on percentage
+    // Color based on percentage
     const colorPercent = Math.min(percent / 100, 1);
     const color = interpolateColor('#ff0000', '#00ff00', colorPercent);
     setPercentageColor(color);
