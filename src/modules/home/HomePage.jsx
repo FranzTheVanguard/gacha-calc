@@ -11,8 +11,8 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <div className="home-content">
-        <h1>Welcome to Gacha Calculator</h1>
-        <p>Choose a game from the navigation menu above to calculate your gacha resources.</p>
+        <h1>Gacha Calculator</h1>
+        <p>All of your rolls, in one place.</p>
         
         <div className="game-cards">
           <Link to="/gbf" className="game-card-link">
