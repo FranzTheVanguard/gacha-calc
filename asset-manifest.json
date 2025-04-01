@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/gacha-calc/static/css/main.1dfd1ce8.css",
-    "main.js": "/gacha-calc/static/js/main.31d33413.js",
+    "main.css": "/gacha-calc/static/css/main.57b01f92.css",
+    "main.js": "/gacha-calc/static/js/main.19998d6e.js",
     "static/js/453.4e100556.chunk.js": "/gacha-calc/static/js/453.4e100556.chunk.js",
     "static/media/gbf_bg.jpg": "/gacha-calc/static/media/gbf_bg.63217578a2cf0719f820.jpg",
     "static/media/gbf_bg_dark_1.jpg": "/gacha-calc/static/media/gbf_bg_dark_1.6f868f70b6eb312bf5c6.jpg",
     "index.html": "/gacha-calc/index.html",
-    "main.1dfd1ce8.css.map": "/gacha-calc/static/css/main.1dfd1ce8.css.map",
-    "main.31d33413.js.map": "/gacha-calc/static/js/main.31d33413.js.map",
+    "main.57b01f92.css.map": "/gacha-calc/static/css/main.57b01f92.css.map",
+    "main.19998d6e.js.map": "/gacha-calc/static/js/main.19998d6e.js.map",
     "453.4e100556.chunk.js.map": "/gacha-calc/static/js/453.4e100556.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1dfd1ce8.css",
-    "static/js/main.31d33413.js"
+    "static/css/main.57b01f92.css",
+    "static/js/main.19998d6e.js"
   ]
 }
