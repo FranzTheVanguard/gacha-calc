@@ -5,28 +5,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('../../assets/gbf_bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   margin: 0;
   padding: 0;
   padding-top: 64px; /* Height of navbar */
+  position: relative;
 }
 
 [data-theme='dark'] .gbf-page {
-  background-image: url('../../assets/gbf_bg_dark_1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-color: #131313; /* Dark navy/blue background color */
+  background-color: #131313;
 }
 
-/* Add special handling for dark theme background on mobile */
+.background-wrapper.loading {
+  opacity: 0;
+}
+
+.background-wrapper.loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
 @media (max-width: 768px) {
-  [data-theme='dark'] .gbf-page {
-    background-size: auto 100%; /* Height 100%, width auto to maintain aspect ratio */
-    background-position: center top;
+  .background-wrapper {
+    background-size: auto 100% !important;
+    background-position: center top !important;
   }
 }
 

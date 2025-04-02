@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './GbfPage.css';
+import BackgroundImage from './components/BackgroundImage';
 
 const GbfPage = () => {
 	useEffect(() => {
@@ -66,6 +67,7 @@ const GbfPage = () => {
   
   return (
     <div className="gbf-page">
+      <BackgroundImage />
       <div className="gbf-calculator">
         <h1 className="gbf-title">Granblue Fantasy Spark Calculator</h1>
         
