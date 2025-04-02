@@ -19,11 +19,13 @@ const Drawer = ({ isOpen, onClose, theme, onThemeToggle }) => {
         </div>
         
         <nav className="drawer-content">
+          <Link to="/" onClick={onClose}>Home</Link>
           <Link to="/gbf" onClick={onClose}>Granblue Fantasy</Link>
           <Link to="/gfl2" onClick={onClose}>Girls' Frontline 2</Link>
           <Link to="/nikke" onClick={onClose}>Nikke</Link>
           <Link to="/hsr" onClick={onClose}>Honkai: Star Rail</Link>
           <Link to="/zzz" onClick={onClose}>Zenless Zone Zero</Link>
+          <Link to="/ba" onClick={onClose}>Blue Archive</Link>
         </nav>
         
         <div className="drawer-footer">

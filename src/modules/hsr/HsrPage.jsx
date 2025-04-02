@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './HsrPage.css';
 
 const HsrPage = () => {
   useEffect(() => {
@@ -8,10 +9,13 @@ const HsrPage = () => {
       document.title = "Gacha Calculator";
     };
   }, []);
+
   return (
     <div className="hsr-page">
-      <h1>Honkai: Star Rail Calculator</h1>
-      {/* Add HSR specific content here */}
+      <div className="hsr-content">
+        <h1>Honkai: Star Rail Calculator</h1>
+        {/* Add HSR specific content here */}
+      </div>
     </div>
   );
 };

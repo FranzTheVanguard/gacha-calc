@@ -7,7 +7,8 @@ import {
   Gfl2Page,
   NikkePage,
   HsrPage,
-  ZzzPage
+  ZzzPage,
+  BaPage
 } from './modules/index.jsx';
 import './App.css';
 
@@ -53,6 +54,7 @@ function App() {
             <li><Link to="/nikke">Nikke</Link></li>
             <li><Link to="/hsr">HSR</Link></li>
             <li><Link to="/zzz">ZZZ</Link></li>
+            <li><Link to="/ba">BA</Link></li>
           </ul>
           
           {/* Desktop theme toggle */}
@@ -75,6 +77,7 @@ function App() {
           <Route path="/nikke" element={<NikkePage />} />
           <Route path="/hsr" element={<HsrPage />} />
           <Route path="/zzz" element={<ZzzPage />} />
+          <Route path="/ba" element={<BaPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </div>

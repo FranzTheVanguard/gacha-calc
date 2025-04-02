@@ -9,9 +9,9 @@ const GbfPage = () => {
 		  document.title = "Gacha Calculator";
 		};
 	  }, []);
-    const [crystals, setCrystals] = useState(() => localStorage.getItem('gbf_crystals') || '');
-    const [singleTickets, setSingleTickets] = useState(() => localStorage.getItem('gbf_single_tickets') || '');
-    const [tenTickets, setTenTickets] = useState(() => localStorage.getItem('gbf_ten_tickets') || '');
+    const [crystals, setCrystals] = useState(() => localStorage.getItem('gbf_crystals') || '0');
+    const [singleTickets, setSingleTickets] = useState(() => localStorage.getItem('gbf_single_tickets') || '0');
+    const [tenTickets, setTenTickets] = useState(() => localStorage.getItem('gbf_ten_tickets') || '0');
     const [totalRolls, setTotalRolls] = useState(0);
     const [percentage, setPercentage] = useState(0);
     const [percentageColor, setPercentageColor] = useState('#ff0000');
@@ -59,12 +59,19 @@ const GbfPage = () => {
         setPercentageColor(color);
     }, [crystals, singleTickets, tenTickets]);
 
-
-
     const handleFocus = (e) => {
         e.target.select();
     };
-  
+
+    const handleInputChange = (e, setter) => {
+        const value = e.target.value;
+        if (value === '') {
+            setter('0');
+        } else {
+            setter(value);
+        }
+    };
+
   return (
     <div className="gbf-page">
       <BackgroundImage />
@@ -79,9 +86,8 @@ const GbfPage = () => {
                 type="number"
                 className="input-field"
                 value={crystals}
-                onChange={(e) => setCrystals(e.target.value)}
+                onChange={(e) => handleInputChange(e, setCrystals)}
                 onFocus={handleFocus}
-                placeholder="0"
                 min="0"
               />
             </div>
@@ -92,9 +98,8 @@ const GbfPage = () => {
                 type="number"
                 className="input-field"
                 value={singleTickets}
-                onChange={(e) => setSingleTickets(e.target.value)}
+                onChange={(e) => handleInputChange(e, setSingleTickets)}
                 onFocus={handleFocus}
-                placeholder="0"
                 min="0"
               />
             </div>
@@ -105,9 +110,8 @@ const GbfPage = () => {
                 type="number"
                 className="input-field"
                 value={tenTickets}
-                onChange={(e) => setTenTickets(e.target.value)}
+                onChange={(e) => handleInputChange(e, setTenTickets)}
                 onFocus={handleFocus}
-                placeholder="0"
                 min="0"
               />
             </div>

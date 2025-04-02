@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './Gfl2Page.css';
 
 const Gfl2Page = () => {
   useEffect(() => {
@@ -8,10 +9,13 @@ const Gfl2Page = () => {
       document.title = "Gacha Calculator";
     };
   }, []);
+
   return (
     <div className="gfl2-page">
-      <h1>Girls' Frontline 2 Calculator</h1>
-      {/* Add GFL2 specific content here */}
+      <div className="gfl2-content">
+        <h1>Girls' Frontline 2 Calculator</h1>
+        {/* Add GFL2 specific content here */}
+      </div>
     </div>
   );
 };

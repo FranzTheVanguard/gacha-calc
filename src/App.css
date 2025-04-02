@@ -197,7 +197,8 @@
 .gfl2-page,
 .nikke-page,
 .hsr-page,
-.zzz-page {
+.zzz-page,
+.ba-page {
   position: fixed;
   top: 0;
   left: 0;
@@ -227,7 +228,8 @@
   .gfl2-page,
   .nikke-page,
   .hsr-page,
-  .zzz-page {
+  .zzz-page,
+  .ba-page {
     overflow-y: auto;
     position: absolute;
     padding-top: 120px; /* Increased to accommodate the stacked nav menu */

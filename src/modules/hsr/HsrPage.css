@@ -1,0 +1,28 @@
+.hsr-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-primary);
+}
+
+.hsr-content {
+  padding: 2rem;
+  padding-top: 80px; /* Moved from page to content */
+}
+
+.hsr-content h1 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Add responsive styles for mobile */
+@media (max-width: 768px) {
+  .hsr-content {
+    padding: 1rem;
+    padding-top: 120px; /* Moved from page to content */
+  }
+  
+  .hsr-content h1 {
+    font-size: 1.5rem;
+  }
+} 
