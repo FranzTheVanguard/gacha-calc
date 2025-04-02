@@ -74,8 +74,75 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 997;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Menu and Home button styles */
+.menu-button,
+.home-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-button:hover,
+.home-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important; /* Force hide desktop nav */
+  }
+
+  .mobile-nav {
+    display: flex;
+    width: 100%;
+  }
+
+  .menu-button,
+  .home-button {
+    display: flex;
+  }
+
+  .nav-menu {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Hide any other desktop elements */
+  .desktop-only {
+    display: none !important;
+  }
 }
 
 .nav-menu ul {
@@ -143,25 +210,13 @@
 
 /* Add responsive styles for the navigation */
 @media (max-width: 768px) {
+  .desktop-nav, 
+  .desktop-only {
+    display: none;
+  }
+
   .nav-menu {
-    flex-direction: column;
-    padding: 0.5rem;
-  }
-  
-  .nav-menu ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .nav-menu li a {
-    font-size: 1rem;
-    padding: 0.4rem 0.7rem;
-  }
-  
-  .theme-toggle {
-    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
   }
 }
 
@@ -176,5 +231,29 @@
     overflow-y: auto;
     position: absolute;
     padding-top: 120px; /* Increased to accommodate the stacked nav menu */
+  }
+}
+
+/* Menu button styles */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
