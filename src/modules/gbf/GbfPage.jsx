@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './GbfPage.css';
 import BackgroundImage from './components/BackgroundImage';
+import Crystal from '../../assets/Crystal.jpg';
 
 const GbfPage = () => {
 	useEffect(() => {
@@ -68,7 +69,9 @@ const GbfPage = () => {
         if (value === '') {
             setter('0');
         } else {
-            setter(value);
+            // Remove leading zeros and convert back to string
+            const cleanValue = String(parseInt(value, 10));
+            setter(cleanValue);
         }
     };
 
@@ -82,14 +85,17 @@ const GbfPage = () => {
           <div className="calculator-column">
             <div className="input-group">
               <label className="input-label">Crystals</label>
-              <input
-                type="number"
-                className="input-field"
-                value={crystals}
-                onChange={(e) => handleInputChange(e, setCrystals)}
-                onFocus={handleFocus}
-                min="0"
-              />
+              <div className="input-with-icon">
+                <img src={Crystal} alt="Crystal" className="currency-icon" />
+                <input
+                  type="number"
+                  className="input-field"
+                  value={crystals}
+                  onChange={(e) => handleInputChange(e, setCrystals)}
+                  onFocus={handleFocus}
+                  min="0"
+                />
+              </div>
             </div>
 
             <div className="input-group">

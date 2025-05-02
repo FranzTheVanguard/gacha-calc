@@ -1,12 +1,23 @@
 .hsr-page {
-  min-height: 100vh;
-  width: 100%;
-  background-color: var(--bg-primary);
+  position: relative;
+  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+  background-image: url('../../assets/hsr-bg.jpg'); /* Path relative to the CSS file */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the content vertically */
 }
 
 .hsr-content {
-  padding: 2rem;
-  padding-top: 80px; /* Moved from page to content */
+  /* Add styles for your content container if needed */
+  /* For example, add a semi-transparent background for readability */
+  background-color: rgba(0, 0, 0, 0.5); /* Example: semi-transparent black */
+  padding: 20px;
+  border-radius: 10px;
+  color: white; /* Example: set text color to white for contrast */
+  text-align: center;
 }
 
 .hsr-content h1 {

@@ -13,8 +13,8 @@ const HsrPage = () => {
   return (
     <div className="hsr-page">
       <div className="hsr-content">
-        <h1>Honkai: Star Rail Calculator</h1>
-        {/* Add HSR specific content here */}
+        <h1>Honkai: Star Rail Warp Calculator</h1>
+        
       </div>
     </div>
   );

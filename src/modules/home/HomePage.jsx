@@ -18,7 +18,7 @@ const HomePage = () => {
           <Link to="/gbf" className="game-card-link">
             <div className="game-card">
               <h2>Granblue Fantasy</h2>
-              <p>Calculate your spark progress</p>
+              <p>Spark Calculator</p>
             </div>
           </Link>
           
@@ -47,6 +47,13 @@ const HomePage = () => {
             <div className="game-card">
               <h2>Zenless Zone Zero</h2>
               <p>Coming soon...</p>
+            </div>
+          </Link>
+
+          <Link to="/ba" className="game-card-link">
+            <div className="game-card">
+              <h2>Blue Archive</h2>
+              <p>Spark Calculator</p>
             </div>
           </Link>
         </div>
