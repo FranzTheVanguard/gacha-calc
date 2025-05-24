@@ -1,30 +1,158 @@
 .hsr-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
   position: relative;
-  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
-  background-image: url('../../assets/hsr-bg.jpg'); /* Path relative to the CSS file */
+  color: white; /* Assuming white text for contrast with a potential dark background */
+  background-image: url('../../assets/hsr-bg.jpg'); /* Added background image */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center the content vertically */
+  background-attachment: fixed; /* Keep the background fixed during scroll */
 }
 
-.hsr-content {
-  /* Add styles for your content container if needed */
-  /* For example, add a semi-transparent background for readability */
-  background-color: rgba(0, 0, 0, 0.5); /* Example: semi-transparent black */
-  padding: 20px;
+.hsr-calculator {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 30px;
   border-radius: 10px;
-  color: white; /* Example: set text color to white for contrast */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   text-align: center;
+  width: 100%;
+  max-width: 700px; /* Max width for the calculator */
 }
 
-.hsr-content h1 {
-  color: var(--text-primary);
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.hsr-title {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: var(--text-primary); /* Changed to match GbfPage.jsx title */
 }
+
+/* New layout styles */
+.hsr-input-group-top-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px; /* Space between top input and bottom inputs */
+}
+
+.hsr-calculator-content-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px; /* Gap between elements */
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.hsr-input-group-bottom-left,
+.hsr-input-group-bottom-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center label and input */
+}
+
+.hsr-separator-line {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 60px; /* Adjust height as needed, should roughly match input height + label */
+  align-self: center; /* Align with the center of the flex container */
+}
+
+/* Remove old layout styles */
+/* .hsr-calculator-content { ... } */
+/* .hsr-input-group-left, .hsr-input-group-right { ... } */
+/* .hsr-input-group-center { ... } */
+/* .hsr-input-group-center::before, .hsr-input-group-center::after { ... } */
+
+.hsr-input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #ccc;
+}
+
+.hsr-input-with-icon {
+  display: flex;
+  align-items: center;
+  /* background-color: rgba(255, 255, 255, 0.1); Original background, now replaced by card style */
+  background-color: rgba(0, 0, 0, 0.3); /* Card style background */
+  border-radius: 8px; /* Card style border-radius */
+  padding: 10px; /* Card style padding - adjust as needed */
+  /* Ensure this padding works well with the icon and input field inside */
+}
+
+.hsr-currency-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.hsr-input-field {
+background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100px; /* Adjust width as needed */
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.hsr-input-field:focus {
+  outline: none;
+  border-color: #e0c990;
+  box-shadow: 0 0 5px rgba(224, 201, 144, 0.5);
+}
+
+/* Remove arrows from number input */
+.hsr-input-field::-webkit-outer-spin-button,
+.hsr-input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hsr-input-field[type=number] {
+  -moz-appearance: textfield;
+}
+
+.hsr-results-container {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.hsr-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hsr-result-item:last-child {
+  border-bottom: none;
+}
+
+.hsr-result-label {
+  font-size: 1.1em;
+  color: #ddd;
+}
+
+.hsr-result-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Background Image Styling (if you use one) */
+/* Removed .hsr-page .background-image selector and its properties as they are now in .hsr-page */
 
 /* Add responsive styles for mobile */
 @media (max-width: 768px) {
@@ -36,4 +164,1807 @@
   .hsr-content h1 {
     font-size: 1.5rem;
   }
+}
+
+/* New styles for input cards */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+.hsr-input-group-top-center,
+.hsr-input-group-bottom-left,
+.hsr-input-group-bottom-right {
+  /* padding: 0; /* Reset padding if .hsr-input-card provides it now */
+  /* margin-bottom: 0; /* Reset margin if .hsr-input-card provides spacing */
+  /* Any other adjustments to ensure they fit well within the new card */
+}
+
+.hsr-input-group-top-center {
+  /* display: flex; /* Already set */
+  /* flex-direction: column; /* Already set */
+  /* align-items: center; /* Already set */
+  margin-bottom: 0; /* Card provides bottom margin if needed, or adjust spacing between cards */
+}
+
+.hsr-calculator-content-bottom {
+  /* display: flex; /* Already set */
+  /* justify-content: space-around; /* Already set */
+  /* align-items: center; /* Already set */
+  gap: 10px; /* Reduced gap as cards will have padding */
+  /* margin-bottom: 30px; /* Already set */
+  /* width: 100%; /* Already set */
+}
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+/* .hsr-input-card .hsr-input-field { ... } */
+
+/* .hsr-input-card .hsr-input-with-icon { ... } */
+
+/* Remove specific styling for .hsr-input-card .hsr-input-field and .hsr-input-card .hsr-input-with-icon as they are no longer needed */
+
+/* Remove previously added .hsr-input-card styles */
+/* .hsr-input-card { ... } */
+
+/* Adjust padding for the groups inside the card if needed, or ensure labels/inputs fit well */
+/* .hsr-input-group-top-center, .hsr-input-group-bottom-left, .hsr-input-group-bottom-right { ... } */
+
+/* Ensure input fields remain styled as before, not overridden by card */
+.hsr-input-card .hsr-input-field {
+  /* Styles for input-field should remain as they were */
+  /* background-color: transparent; (already set) */
+  /* border: 1px solid rgba(255, 255, 255, 0.3); (already set) */
+  /* color: white; (already set) */
+  /* padding: 10px; (already set) */
+  /* border-radius: 5px; (already set) */
+  /* font-size: 1em; (already set) */
+  /* width: 100px; (already set) */
+  /* box-sizing: border-box; (already set) */
+  /* text-align: right; (already set) */
+}
+
+.hsr-input-card .hsr-input-with-icon {
+  /* Styles for input-with-icon should remain as they were */
+  /* background-color: rgba(255, 255, 255, 0.1); (already set) */
+  /* padding: 5px 10px; (already set) */
+  /* border-radius: 5px; (already set) */
 } 

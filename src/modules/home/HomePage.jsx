@@ -23,14 +23,14 @@ const HomePage = () => {
           </Link>
           
           <Link to="/gfl2" className="game-card-link">
-            <div className="game-card">
+            <div className="game-card not-ready">
               <h2>Girls' Frontline 2</h2>
               <p>Coming soon...</p>
             </div>
           </Link>
           
           <Link to="/nikke" className="game-card-link">
-            <div className="game-card">
+            <div className="game-card not-ready">
               <h2>Nikke</h2>
               <p>Coming soon...</p>
             </div>
@@ -39,12 +39,12 @@ const HomePage = () => {
           <Link to="/hsr" className="game-card-link">
             <div className="game-card">
               <h2>Honkai: Star Rail</h2>
-              <p>Coming soon...</p>
+              <p>Warp Calculator</p>
             </div>
           </Link>
           
           <Link to="/zzz" className="game-card-link">
-            <div className="game-card">
+            <div className="game-card not-ready">
               <h2>Zenless Zone Zero</h2>
               <p>Coming soon...</p>
             </div>
