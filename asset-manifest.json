@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/gacha-calc/static/css/main.df880c88.css",
-    "main.js": "/gacha-calc/static/js/main.ae16144d.js",
+    "main.css": "/gacha-calc/static/css/main.919aa0dc.css",
+    "main.js": "/gacha-calc/static/js/main.b77b14cb.js",
     "static/js/453.4e100556.chunk.js": "/gacha-calc/static/js/453.4e100556.chunk.js",
     "static/media/gbf_bg.jpg": "/gacha-calc/static/media/gbf_bg.63217578a2cf0719f820.jpg",
     "static/media/ba_bg.jpg": "/gacha-calc/static/media/ba_bg.4cd04f366bff6fa0f9ac.jpg",
+    "static/media/hsr-bg.jpg": "/gacha-calc/static/media/hsr-bg.ea2c9cf6ca9b781b9856.jpg",
     "static/media/gbf_bg_dark_1.jpg": "/gacha-calc/static/media/gbf_bg_dark_1.6f868f70b6eb312bf5c6.jpg",
+    "static/media/ba_currency_pyroxene.png": "/gacha-calc/static/media/ba_currency_pyroxene.d72f235453c5c8e66a68.png",
     "index.html": "/gacha-calc/index.html",
-    "main.df880c88.css.map": "/gacha-calc/static/css/main.df880c88.css.map",
-    "main.ae16144d.js.map": "/gacha-calc/static/js/main.ae16144d.js.map",
+    "main.919aa0dc.css.map": "/gacha-calc/static/css/main.919aa0dc.css.map",
+    "main.b77b14cb.js.map": "/gacha-calc/static/js/main.b77b14cb.js.map",
     "453.4e100556.chunk.js.map": "/gacha-calc/static/js/453.4e100556.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.df880c88.css",
-    "static/js/main.ae16144d.js"
+    "static/css/main.919aa0dc.css",
+    "static/js/main.b77b14cb.js"
   ]
 }
