@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './BaPage.css';
 import BackgroundImage from './components/BackgroundImage';
+import PyroxeneIcon from '../../assets/ba_currency_pyroxene.png';
 
 const BaPage = () => {
   useEffect(() => {
@@ -84,14 +85,17 @@ const BaPage = () => {
           <div className="calculator-column">
             <div className="input-group">
               <label className="input-label">Pyroxenes</label>
-              <input
-                type="number"
-                className="input-field"
-                value={pyroxenes}
-                onChange={(e) => handleInputChange(e, setPyroxenes)}
-                onFocus={handleFocus}
-                min="0"
-              />
+              <div className="input-with-icon">
+                <img src={PyroxeneIcon} alt="Pyroxene" className="currency-icon" />
+                <input
+                  type="number"
+                  className="input-field"
+                  value={pyroxenes}
+                  onChange={(e) => handleInputChange(e, setPyroxenes)}
+                  onFocus={handleFocus}
+                  min="0"
+                />
+              </div>
             </div>
 
             <div className="input-group">

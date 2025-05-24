@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './GbfPage.css';
 import BackgroundImage from './components/BackgroundImage';
-import Crystal from '../../assets/Crystal.jpg';
+import CrystalIcon from '../../assets/gbf_currency_crystal.jpg';
 
 const GbfPage = () => {
 	useEffect(() => {
@@ -86,7 +86,7 @@ const GbfPage = () => {
             <div className="input-group">
               <label className="input-label">Crystals</label>
               <div className="input-with-icon">
-                <img src={Crystal} alt="Crystal" className="currency-icon" />
+                <img src={CrystalIcon} alt="Crystal" className="currency-icon" />
                 <input
                   type="number"
                   className="input-field"
