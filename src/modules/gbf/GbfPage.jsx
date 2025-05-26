@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './GbfPage.css';
-import BackgroundImage from './components/BackgroundImage';
+// import BackgroundImage from './components/BackgroundImage';
 import CrystalIcon from '../../assets/gbf_currency_crystal.jpg';
 
 const GbfPage = () => {
@@ -77,7 +77,6 @@ const GbfPage = () => {
 
   return (
     <div className="gbf-page">
-      <BackgroundImage />
       <div className="gbf-calculator">
         <h1 className="gbf-title">Granblue Fantasy Spark Calculator</h1>
         

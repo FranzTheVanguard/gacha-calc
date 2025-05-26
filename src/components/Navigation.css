@@ -1,0 +1,124 @@
+/* Styles for the navigation menu */
+.nav-menu {
+  background-color: var(--nav-bg);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 997; /* Ensure nav is above drawer overlay but below drawer content if needed */
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav {
+  display: none; /* Hidden by default, shown in media query */
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-button,
+.home-button {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex; /* Ensure SVG is centered */
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-button:hover,
+.home-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Desktop navigation links */
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Spacing for desktop items */
+}
+
+.nav-menu li a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-menu li a:hover {
+  background-color: var(--accent-color);
+  color: var(--nav-bg); /* Text color on hover */
+}
+
+/* Active link style */
+.nav-menu li a.active-link {
+  background-color: var(--accent-color);
+  color: var(--nav-bg); /* Text color for active link */
+  font-weight: bold;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile styles specific to navigation */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: flex;
+  }
+  .nav-menu {
+    padding: 0.5rem 1rem; /* Adjust padding for mobile */
+  }
+  .menu-button,
+  .home-button {
+    display: flex; /* Ensure they are shown on mobile */
+  }
+} 

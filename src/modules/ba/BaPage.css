@@ -6,12 +6,14 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  box-sizing: border-box;
   position: relative;
-}
-
-[data-theme='dark'] .ba-page {
-  background-color: #131313;
+  background-image: url('../../assets/ba_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .ba-calculator {
@@ -22,13 +24,11 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid var(--border-color);
-  width: 100%;
+  width: 90%;
   max-width: 800px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin: 0 2rem;
-  transform: translateY(-32px); /* Half the navbar height to adjust centering */
 }
 
 .ba-title {
@@ -158,22 +158,11 @@
   color: transparent;
 }
 
-.background-wrapper.loading {
-  opacity: 0;
-}
-
-.background-wrapper.loaded {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-}
-
 /* Responsive styles for BA calculator */
 @media (max-width: 768px) {
   .ba-calculator {
     padding: 1.5rem;
-    margin: 0 1rem;
     max-width: 90%;
-    transform: translateY(0);
   }
 
   .ba-title {

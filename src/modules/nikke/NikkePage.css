@@ -1,28 +1,217 @@
 .nikke-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  color: white; 
+  background-image: url('../../assets/nikke_bg.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+}
+
+.nikke-calculator {
+  background-color: rgba(0, 0, 0, 0.7); 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 90%;
+  max-width: 700px; 
+}
+
+.nikke-title {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: var(--text-primary); 
+}
+
+.nikke-input-group-top-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.nikke-calculator-content-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px; 
+  margin-bottom: 30px;
   width: 100%;
-  background-color: var(--bg-primary);
 }
 
-.nikke-content {
-  padding: 2rem;
-  padding-top: 80px; /* Moved from page to content */
+.nikke-input-group-bottom-left,
+.nikke-input-group-bottom-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
-.nikke-content h1 {
+.nikke-separator-line {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 60px; 
+  align-self: center; 
+}
+
+.nikke-input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #ccc;
+}
+
+.nikke-input-with-icon {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3); 
+  border-radius: 8px; 
+  padding: 10px; 
+}
+
+.nikke-currency-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+/* Add this new class for the gem icon */
+.nikke-currency-icon.gem-icon {
+  width: 64px; /* Increased size */
+  height: 64px; /* Increased size */
+}
+
+.nikke-input-field {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100px; 
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.nikke-input-field:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-color);
+}
+
+.nikke-input-field::-webkit-outer-spin-button,
+.nikke-input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.nikke-input-field[type=number] {
+  -moz-appearance: textfield;
+}
+
+.nikke-results-container {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.nikke-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nikke-result-item:last-child {
+  border-bottom: none;
+}
+
+.nikke-result-label {
+  font-size: 1.1em;
+  color: #ddd;
+}
+
+.nikke-result-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Light Theme Overrides */
+[data-theme='light'] .nikke-calculator {
+  background-color: var(--card-bg); /* This is rgba(255, 255, 255, 0.6) from :root */
+  box-shadow: 0 8px 32px var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+[data-theme='light'] .nikke-input-label {
+  color: var(--text-secondary); 
+}
+
+[data-theme='light'] .nikke-input-with-icon {
+  background-color: rgba(248, 249, 250, 0.7); /* Transparent Light Grey/Off-white */
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+[data-theme='light'] .nikke-input-field {
+  background-color: rgba(0, 0, 0, 0.05); /* Changed to subtle dark transparency */
+  border: 1px solid rgba(0,0,0,0.2);
+  color: var(--text-primary); 
+}
+
+[data-theme='light'] .nikke-results-container {
+  background-color: var(--card-bg); /* This is rgba(255, 255, 255, 0.6) from :root */
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+[data-theme='light'] .nikke-result-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme='light'] .nikke-result-label {
+  color: var(--text-secondary);
+}
+
+[data-theme='light'] .nikke-result-value {
   color: var(--text-primary);
-  font-size: 2rem;
-  margin-bottom: 1rem;
 }
 
-/* Add responsive styles for mobile */
+[data-theme='light'] .nikke-separator-line {
+  background-color: rgba(0,0,0,0.15);
+}
+
 @media (max-width: 768px) {
-  .nikke-content {
+  .nikke-calculator {
     padding: 1rem;
-    padding-top: 120px; /* Moved from page to content */
   }
   
-  .nikke-content h1 {
+  .nikke-title {
     font-size: 1.5rem;
+  }
+
+  .nikke-input-group-top-center {
+    margin-bottom: 20px;
+  }
+
+  .nikke-calculator-content-bottom {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .nikke-separator-line {
+    width: 80%;
+    height: 1px;
+    margin: 10px 0;
   }
 } 

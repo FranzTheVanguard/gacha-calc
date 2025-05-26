@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './BaPage.css';
-import BackgroundImage from './components/BackgroundImage';
+// import BackgroundImage from './components/BackgroundImage';
 import PyroxeneIcon from '../../assets/ba_currency_pyroxene.png';
 
 const BaPage = () => {
@@ -77,7 +77,6 @@ const BaPage = () => {
 
   return (
     <div className="ba-page">
-      <BackgroundImage />
       <div className="ba-calculator">
         <h1 className="ba-title">Blue Archive Spark Calculator</h1>
         

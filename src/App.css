@@ -31,6 +31,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
 }
 
 .App-logo {
@@ -68,130 +69,6 @@
   }
 }
 
-.nav-menu {
-  background-color: var(--nav-bg);
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 997;
-}
-
-.desktop-nav {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-nav {
-  display: none;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Menu and Home button styles */
-.menu-button,
-.home-button {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--nav-text);
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-button:hover,
-.home-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none !important; /* Force hide desktop nav */
-  }
-
-  .mobile-nav {
-    display: flex;
-    width: 100%;
-  }
-
-  .menu-button,
-  .home-button {
-    display: flex;
-  }
-
-  .nav-menu {
-    padding: 0.5rem 1rem;
-  }
-
-  /* Hide any other desktop elements */
-  .desktop-only {
-    display: none !important;
-  }
-}
-
-.nav-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.nav-menu li a {
-  color: var(--nav-text);
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.nav-menu li a:hover {
-  background-color: var(--accent-color);
-  color: var(--nav-bg);
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--nav-text);
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-}
-
-/* Game-specific page styles */
 .home-page,
 .gbf-page,
 .gfl2-page,
@@ -199,63 +76,18 @@
 .hsr-page,
 .zzz-page,
 .ba-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  padding: 0;
+  padding-top: 1rem;
+}
+
+html, body {
   margin: 0;
-  z-index: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Add responsive styles for the navigation */
-@media (max-width: 768px) {
-  .desktop-nav, 
-  .desktop-only {
-    display: none;
-  }
-
-  .nav-menu {
-    padding: 0.75rem 1rem;
-  }
-}
-
-/* Adjust game pages for mobile */
-@media (max-width: 768px) {
-  .home-page,
-  .gbf-page,
-  .gfl2-page,
-  .nikke-page,
-  .hsr-page,
-  .zzz-page,
-  .ba-page {
-    overflow-y: auto;
-    position: absolute;
-    padding-top: 120px; /* Increased to accommodate the stacked nav menu */
-  }
-}
-
-/* Menu button styles */
-.menu-button {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--nav-text);
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
-
-.menu-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-  .menu-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+*, *::before, *::after {
+  box-sizing: inherit;
 }

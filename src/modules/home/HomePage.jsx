@@ -30,9 +30,9 @@ const HomePage = () => {
           </Link>
           
           <Link to="/nikke" className="game-card-link">
-            <div className="game-card not-ready">
+            <div className="game-card">
               <h2>Nikke</h2>
-              <p>Coming soon...</p>
+              <p>Pull Calculator</p>
             </div>
           </Link>
           
