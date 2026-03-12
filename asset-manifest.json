@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/gacha-calc/static/css/main.648544a6.css",
-    "main.js": "/gacha-calc/static/js/main.e4dcaeb7.js",
-    "static/js/453.4e100556.chunk.js": "/gacha-calc/static/js/453.4e100556.chunk.js",
+    "main.css": "/gacha-calc/static/css/main.8d18a4f3.css",
+    "main.js": "/gacha-calc/static/js/main.4d6dab15.js",
+    "static/js/453.4cbe0fab.chunk.js": "/gacha-calc/static/js/453.4cbe0fab.chunk.js",
     "static/media/gbf_bg.jpg": "/gacha-calc/static/media/gbf_bg.63217578a2cf0719f820.jpg",
     "static/media/nikke_bg.jpg": "/gacha-calc/static/media/nikke_bg.a90d3497d86c10ec968d.jpg",
+    "static/media/hsr_bg_dark.jpg": "/gacha-calc/static/media/hsr_bg_dark.0c902e1407d9870a6f81.jpg",
     "static/media/ba_bg.jpg": "/gacha-calc/static/media/ba_bg.4cd04f366bff6fa0f9ac.jpg",
-    "static/media/hsr-bg.jpg": "/gacha-calc/static/media/hsr-bg.ea2c9cf6ca9b781b9856.jpg",
+    "static/media/hsr_bg.jpg": "/gacha-calc/static/media/hsr_bg.8ab789a2b0190017b0ff.jpg",
     "static/media/gbf_bg_dark_1.jpg": "/gacha-calc/static/media/gbf_bg_dark_1.6f868f70b6eb312bf5c6.jpg",
     "static/media/hsr_currency_stellarjade.png": "/gacha-calc/static/media/hsr_currency_stellarjade.7680426c6414bec75a6c.png",
     "static/media/ba_currency_pyroxene.png": "/gacha-calc/static/media/ba_currency_pyroxene.d72f235453c5c8e66a68.png",
@@ -16,12 +17,12 @@
     "static/media/nikke_currency_voucher.png": "/gacha-calc/static/media/nikke_currency_voucher.cb791f2c5af70a600290.png",
     "static/media/nikke_currency_gem.png": "/gacha-calc/static/media/nikke_currency_gem.74a32a52a99760aec2c4.png",
     "index.html": "/gacha-calc/index.html",
-    "main.648544a6.css.map": "/gacha-calc/static/css/main.648544a6.css.map",
-    "main.e4dcaeb7.js.map": "/gacha-calc/static/js/main.e4dcaeb7.js.map",
-    "453.4e100556.chunk.js.map": "/gacha-calc/static/js/453.4e100556.chunk.js.map"
+    "main.8d18a4f3.css.map": "/gacha-calc/static/css/main.8d18a4f3.css.map",
+    "main.4d6dab15.js.map": "/gacha-calc/static/js/main.4d6dab15.js.map",
+    "453.4cbe0fab.chunk.js.map": "/gacha-calc/static/js/453.4cbe0fab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.648544a6.css",
-    "static/js/main.e4dcaeb7.js"
+    "static/css/main.8d18a4f3.css",
+    "static/js/main.4d6dab15.js"
   ]
 }
