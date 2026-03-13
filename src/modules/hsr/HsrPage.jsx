@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './HsrPage.css';
 import StellarJadeIcon from '../../assets/hsr_currency_stellarjade.png';
+import OneiricShardIcon from '../../assets/hsr_currency_oneiricshard.png';
 import PassIcon from '../../assets/hsr_currency_pass.png';
 import SpecialPassIcon from '../../assets/hsr_currency_specialpass.png';
 
@@ -13,6 +14,7 @@ const HsrPage = () => {
 	}, []);
 
 	const [stellarJades, setStellarJades] = useState(() => localStorage.getItem('hsr_stellar_jades') || '0');
+	const [oneiricShards, setOneiricShards] = useState(() => localStorage.getItem('hsr_oneiric_shards') || '0');
 	const [singleTickets, setSingleTickets] = useState(() => localStorage.getItem('hsr_single_tickets') || '0');
 	const [specialPasses, setSpecialPasses] = useState(() => localStorage.getItem('hsr_special_passes') || '0');
 	const [totalLimitedWarps, setTotalLimitedWarps] = useState(0);
@@ -20,12 +22,14 @@ const HsrPage = () => {
 
 	useEffect(() => {
 		localStorage.setItem('hsr_stellar_jades', stellarJades);
+		localStorage.setItem('hsr_oneiric_shards', oneiricShards);
 		localStorage.setItem('hsr_single_tickets', singleTickets);
 		localStorage.setItem('hsr_special_passes', specialPasses);
-	}, [stellarJades, singleTickets, specialPasses]);
+	}, [stellarJades, oneiricShards, singleTickets, specialPasses]);
 
 	useEffect(() => {
-		const jadeRolls = Math.floor((parseInt(stellarJades) || 0) / 160);
+		const totalJades = (parseInt(stellarJades) || 0) + (parseInt(oneiricShards) || 0);
+		const jadeRolls = Math.floor(totalJades / 160);
 		const specialPassRolls = parseInt(specialPasses) || 0;
 		// Standard tickets (singleTickets) should not count towards limited guarantees
 
@@ -33,7 +37,7 @@ const HsrPage = () => {
 		setTotalLimitedWarps(limitedWarps);
 
 		setGuarantees((limitedWarps / 90).toFixed(2));
-	}, [stellarJades, singleTickets, specialPasses]);
+	}, [stellarJades, oneiricShards, singleTickets, specialPasses]);
 
 	const handleFocus = (e) => {
 		e.target.select();
@@ -68,6 +72,21 @@ const HsrPage = () => {
 									className="hsr-v2-input"
 									value={stellarJades}
 									onChange={(e) => handleInputChange(e, setStellarJades)}
+									onFocus={handleFocus}
+									min="0"
+								/>
+							</div>
+						</div>
+
+						<div className="hsr-v2-input-group">
+							<label className="hsr-v2-input-label">Oneiric Shard</label>
+							<div className="hsr-v2-input-wrapper">
+								<img src={OneiricShardIcon} alt="Oneiric Shard" className="hsr-v2-icon" />
+								<input
+									type="number"
+									className="hsr-v2-input"
+									value={oneiricShards}
+									onChange={(e) => handleInputChange(e, setOneiricShards)}
 									onFocus={handleFocus}
 									min="0"
 								/>
