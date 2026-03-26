@@ -4,6 +4,7 @@ import StellarJadeIcon from '../../assets/hsr_currency_stellarjade.png';
 import OneiricShardIcon from '../../assets/hsr_currency_oneiricshard.png';
 import PassIcon from '../../assets/hsr_currency_pass.png';
 import SpecialPassIcon from '../../assets/hsr_currency_specialpass.png';
+import { GachaLayout, GachaCard, CurrencyInput, DoublePassContainer, ResultBox } from '../../components/GachaDashboard.jsx';
 
 const HsrPage = () => {
 	useEffect(() => {
@@ -54,96 +55,49 @@ const HsrPage = () => {
 	};
 
 	return (
-		<div className="hsr-v2-page">
-			<div className="hsr-v2-dashboard">
-				<h1 className="hsr-v2-title">Warp Calculator Dashboard</h1>
+		<GachaLayout themeClass="theme-hsr" title="Honkai: Star Rail">
+			<GachaCard title="Astral Express Resources" isPrimary>
+				<CurrencyInput
+					label="Stellar Jade"
+					iconSrc={StellarJadeIcon}
+					value={stellarJades}
+					onChange={(e) => handleInputChange(e, setStellarJades)}
+					onFocus={handleFocus}
+				/>
+				<CurrencyInput
+					label="Oneiric Shard"
+					iconSrc={OneiricShardIcon}
+					value={oneiricShards}
+					onChange={(e) => handleInputChange(e, setOneiricShards)}
+					onFocus={handleFocus}
+				/>
 
-				<div className="hsr-v2-cards-container">
-					{/* Main Currency Card */}
-					<div className="hsr-v2-card hsr-v2-card-primary">
-						<h2 className="hsr-v2-card-title">Astral Express Resources</h2>
+				<DoublePassContainer>
+					<CurrencyInput
+						label="Star Rail Pass"
+						iconSrc={PassIcon}
+						value={singleTickets}
+						onChange={(e) => handleInputChange(e, setSingleTickets)}
+						onFocus={handleFocus}
+						inPassContainer
+					/>
+					<CurrencyInput
+						label="Special Pass"
+						iconSrc={SpecialPassIcon}
+						value={specialPasses}
+						onChange={(e) => handleInputChange(e, setSpecialPasses)}
+						onFocus={handleFocus}
+						inPassContainer
+						isSpecial
+					/>
+				</DoublePassContainer>
+			</GachaCard>
 
-						<div className="hsr-v2-input-group">
-							<label className="hsr-v2-input-label">Stellar Jade</label>
-							<div className="hsr-v2-input-wrapper">
-								<img src={StellarJadeIcon} alt="Stellar Jade" className="hsr-v2-icon" />
-								<input
-									type="number"
-									className="hsr-v2-input"
-									value={stellarJades}
-									onChange={(e) => handleInputChange(e, setStellarJades)}
-									onFocus={handleFocus}
-									min="0"
-								/>
-							</div>
-						</div>
-
-						<div className="hsr-v2-input-group">
-							<label className="hsr-v2-input-label">Oneiric Shard</label>
-							<div className="hsr-v2-input-wrapper">
-								<img src={OneiricShardIcon} alt="Oneiric Shard" className="hsr-v2-icon" />
-								<input
-									type="number"
-									className="hsr-v2-input"
-									value={oneiricShards}
-									onChange={(e) => handleInputChange(e, setOneiricShards)}
-									onFocus={handleFocus}
-									min="0"
-								/>
-							</div>
-						</div>
-
-						<div className="hsr-v2-passes-container">
-							<div className="hsr-v2-input-group hsr-v2-half-width">
-								<label className="hsr-v2-input-label">Star Rail Pass</label>
-								<div className="hsr-v2-input-wrapper">
-									<img src={PassIcon} alt="Standard Pass" className="hsr-v2-icon" />
-									<input
-										type="number"
-										className="hsr-v2-input"
-										value={singleTickets}
-										onChange={(e) => handleInputChange(e, setSingleTickets)}
-										onFocus={handleFocus}
-										min="0"
-									/>
-								</div>
-							</div>
-
-							<div className="hsr-v2-input-group hsr-v2-half-width">
-								<label className="hsr-v2-input-label">Special Pass</label>
-								<div className="hsr-v2-input-wrapper">
-									<img src={SpecialPassIcon} alt="Special Pass" className="hsr-v2-icon" />
-									<input
-										type="number"
-										className="hsr-v2-input hsr-v2-special"
-										value={specialPasses}
-										onChange={(e) => handleInputChange(e, setSpecialPasses)}
-										onFocus={handleFocus}
-										min="0"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					{/* Results Card */}
-					<div className="hsr-v2-card hsr-v2-card-results">
-						<h2 className="hsr-v2-card-title">Limited Warps Calculations</h2>
-
-						<div className="hsr-v2-result-box">
-							<span className="hsr-v2-result-label">Limited Pulls</span>
-							<span className="hsr-v2-result-value hsr-v2-jumps-highlight">{totalLimitedWarps}</span>
-						</div>
-
-						<div className="hsr-v2-result-box">
-							<span className="hsr-v2-result-label">Limited 5★ Guarantees</span>
-							<span className="hsr-v2-result-value hsr-v2-guarantee-highlight">{guarantees}</span>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+			<GachaCard title="Limited Warps Calculations" isResults>
+				<ResultBox label="Limited Pulls" value={totalLimitedWarps} />
+				<ResultBox label="Limited 5★ Guarantees" value={guarantees} highlightType="secondary" />
+			</GachaCard>
+		</GachaLayout>
 	);
 };
 

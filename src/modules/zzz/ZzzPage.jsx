@@ -4,6 +4,7 @@ import PolyIcon from '../../assets/zzz_currency_poly.png';
 import MonoIcon from '../../assets/zzz_currency_mono.png';
 import MasterTapeIcon from '../../assets/zzz_currency_mastertape.png';
 import EncryptedTapeIcon from '../../assets/zzz_currency_encryptedtape.png';
+import { GachaLayout, GachaCard, CurrencyInput, DoublePassContainer, ResultBox } from '../../components/GachaDashboard.jsx';
 
 const ZzzPage = () => {
 	useEffect(() => {
@@ -55,96 +56,49 @@ const ZzzPage = () => {
 	};
 
 	return (
-		<div className="zzz-v2-page">
-			<div className="zzz-v2-dashboard">
-				<h1 className="zzz-v2-title">Signal Search Dashboard</h1>
+		<GachaLayout themeClass="theme-zzz" title="Zenless Zone Zero">
+			<GachaCard title="New Eridu Resources" isPrimary>
+				<CurrencyInput
+					label="Polychrome"
+					iconSrc={PolyIcon}
+					value={polychromes}
+					onChange={(e) => handleInputChange(e, setPolychromes)}
+					onFocus={handleFocus}
+				/>
+				<CurrencyInput
+					label="Monochrome"
+					iconSrc={MonoIcon}
+					value={monochromes}
+					onChange={(e) => handleInputChange(e, setMonochromes)}
+					onFocus={handleFocus}
+				/>
 
-				<div className="zzz-v2-cards-container">
-					{/* Main Currency Card */}
-					<div className="zzz-v2-card zzz-v2-card-primary">
-						<h2 className="zzz-v2-card-title">New Eridu Resources</h2>
+				<DoublePassContainer>
+					<CurrencyInput
+						label="Master Tape"
+						iconSrc={MasterTapeIcon}
+						value={masterTapes}
+						onChange={(e) => handleInputChange(e, setMasterTapes)}
+						onFocus={handleFocus}
+						inPassContainer
+					/>
+					<CurrencyInput
+						label="Encrypted Tape"
+						iconSrc={EncryptedTapeIcon}
+						value={encryptedTapes}
+						onChange={(e) => handleInputChange(e, setEncryptedTapes)}
+						onFocus={handleFocus}
+						inPassContainer
+						isSpecial
+					/>
+				</DoublePassContainer>
+			</GachaCard>
 
-						<div className="zzz-v2-input-group">
-							<label className="zzz-v2-input-label">Polychrome</label>
-							<div className="zzz-v2-input-wrapper">
-								<img src={PolyIcon} alt="Polychrome" className="zzz-v2-icon" />
-								<input
-									type="number"
-									className="zzz-v2-input"
-									value={polychromes}
-									onChange={(e) => handleInputChange(e, setPolychromes)}
-									onFocus={handleFocus}
-									min="0"
-								/>
-							</div>
-						</div>
-
-						<div className="zzz-v2-input-group">
-							<label className="zzz-v2-input-label">Monochrome</label>
-							<div className="zzz-v2-input-wrapper">
-								<img src={MonoIcon} alt="Monochrome" className="zzz-v2-icon" />
-								<input
-									type="number"
-									className="zzz-v2-input"
-									value={monochromes}
-									onChange={(e) => handleInputChange(e, setMonochromes)}
-									onFocus={handleFocus}
-									min="0"
-								/>
-							</div>
-						</div>
-
-						<div className="zzz-v2-passes-container">
-							<div className="zzz-v2-input-group zzz-v2-half-width">
-								<label className="zzz-v2-input-label">Master Tape</label>
-								<div className="zzz-v2-input-wrapper">
-									<img src={MasterTapeIcon} alt="Master Tape" className="zzz-v2-icon" />
-									<input
-										type="number"
-										className="zzz-v2-input"
-										value={masterTapes}
-										onChange={(e) => handleInputChange(e, setMasterTapes)}
-										onFocus={handleFocus}
-										min="0"
-									/>
-								</div>
-							</div>
-
-							<div className="zzz-v2-input-group zzz-v2-half-width">
-								<label className="zzz-v2-input-label">Encrypted Tape</label>
-								<div className="zzz-v2-input-wrapper">
-									<img src={EncryptedTapeIcon} alt="Encrypted Tape" className="zzz-v2-icon" />
-									<input
-										type="number"
-										className="zzz-v2-input zzz-v2-special"
-										value={encryptedTapes}
-										onChange={(e) => handleInputChange(e, setEncryptedTapes)}
-										onFocus={handleFocus}
-										min="0"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					{/* Results Card */}
-					<div className="zzz-v2-card zzz-v2-card-results">
-						<h2 className="zzz-v2-card-title">Signal Search Calculations</h2>
-
-						<div className="zzz-v2-result-box">
-							<span className="zzz-v2-result-label">Limited Searches</span>
-							<span className="zzz-v2-result-value zzz-v2-jumps-highlight">{totalSignalSearches}</span>
-						</div>
-
-						<div className="zzz-v2-result-box">
-							<span className="zzz-v2-result-label">Limited S-Rank Guarantees</span>
-							<span className="zzz-v2-result-value zzz-v2-guarantee-highlight">{guarantees}</span>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
+			<GachaCard title="Signal Search Calculations" isResults>
+				<ResultBox label="Limited Searches" value={totalSignalSearches} />
+				<ResultBox label="Limited S-Rank Guarantees" value={guarantees} highlightType="secondary" />
+			</GachaCard>
+		</GachaLayout>
 	);
 };
 
