@@ -2,14 +2,21 @@
 	--theme-bg-dark: url('../../assets/hsr_bg_dark.jpg');
 	--theme-bg-light: url('../../assets/hsr_bg.jpg');
 	
-	--theme-focus-primary: #d1a55b;
-	--theme-shadow-primary: rgba(209, 165, 91, 0.3);
+	--theme-focus-primary: #face15;
+	--theme-shadow-primary: rgba(250, 206, 21, 0.3);
 	
-	--theme-focus-secondary: #00e5ff;
-	--theme-shadow-secondary: rgba(0, 229, 255, 0.3);
+	--theme-focus-secondary: #fb7185;
+	--theme-shadow-secondary: rgba(251, 113, 133, 0.3);
+	
+	--theme-light-focus-primary: #d1a55b;
+	--theme-light-shadow-primary: rgba(209, 165, 91, 0.3);
+	
+	--theme-light-focus-secondary: #00e5ff;
+	--theme-light-shadow-secondary: rgba(0, 229, 255, 0.3);
 	
 	--theme-highlight-text: #ffffff;
 	
-	--theme-secondary-text: #d1a55b;
-	--theme-secondary-text-shadow: 0 0 15px rgba(209, 165, 91, 0.5);
+	--theme-secondary-text: #face15;
+	--theme-secondary-text-shadow: 0 0 15px rgba(250, 206, 21, 0.5);
+	--theme-light-secondary-text: #d1a55b;
 }

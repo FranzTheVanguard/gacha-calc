@@ -55,7 +55,7 @@ const HsrPage = () => {
 	};
 
 	return (
-		<GachaLayout themeClass="theme-hsr" title="Honkai: Star Rail">
+		<GachaLayout themeClass="theme-hsr">
 			<GachaCard title="Astral Express Resources" isPrimary>
 				<CurrencyInput
 					label="Stellar Jade"

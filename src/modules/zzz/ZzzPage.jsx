@@ -56,7 +56,7 @@ const ZzzPage = () => {
 	};
 
 	return (
-		<GachaLayout themeClass="theme-zzz" title="Zenless Zone Zero">
+		<GachaLayout themeClass="theme-zzz">
 			<GachaCard title="New Eridu Resources" isPrimary>
 				<CurrencyInput
 					label="Polychrome"

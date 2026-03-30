@@ -12,19 +12,14 @@
 
 	--theme-secondary-text: #face15;
 	--theme-secondary-text-shadow: 0 0 15px rgba(250, 206, 21, 0.5);
+	--theme-light-secondary-text: #d1a55b;
 
 	--theme-card-primary-border: 4px solid #face15;
 	--theme-card-secondary-border: 4px solid #fb7185;
 
-	--theme-light-hover-border: rgba(250, 206, 21, 0.6);
-	--theme-light-title-text: #111;
-	--theme-light-card-title: #444;
-	--theme-light-input-text: #111;
-	--theme-light-input-label: #555;
-	--theme-light-result-bg: rgba(0, 0, 0, 0.05);
-	--theme-light-result-border: rgba(0, 0, 0, 0.05);
-	--theme-light-result-shadow: rgba(0, 0, 0, 0.02);
-	--theme-light-result-label: #666;
-	--theme-light-highlight-text: #111;
-	--theme-light-title-border: 1px solid rgba(0, 0, 0, 0.1);
+	--theme-light-focus-primary: #d1a55b;
+	--theme-light-shadow-primary: rgba(209, 165, 91, 0.3);
+	
+	--theme-light-focus-secondary: #00e5ff;
+	--theme-light-shadow-secondary: rgba(0, 229, 255, 0.3);
 }

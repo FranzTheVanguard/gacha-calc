@@ -1,11 +1,10 @@
 import React from 'react';
 import './GachaDashboard.css';
 
-export const GachaLayout = ({ themeClass, title, children }) => {
+export const GachaLayout = ({ themeClass, children }) => {
 	return (
 		<div className={`gacha-page ${themeClass}`}>
 			<div className="gacha-dashboard">
-				<h1 className="gacha-title">{title}</h1>
 				<div className="gacha-cards-container">
 					{children}
 				</div>
