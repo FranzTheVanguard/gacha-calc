@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './BaPage.css';
-// import BackgroundImage from './components/BackgroundImage';
 import PyroxeneIcon from '../../assets/ba_currency_pyroxene.png';
 
 const BaPage = () => {

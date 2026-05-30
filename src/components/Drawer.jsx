@@ -3,19 +3,21 @@ import { Link } from 'react-router-dom';
 import './Drawer.css';
 
 const Drawer = ({ isOpen, onClose, theme, onThemeToggle }) => {
+	const themeToggleLabel = theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+
 	return (
 		<>
-			{/* Backdrop */}
 			<div
 				className={`drawer-backdrop ${isOpen ? 'active' : ''}`}
 				onClick={onClose}
 			/>
 
-			{/* Drawer */}
 			<div className={`drawer ${isOpen ? 'open' : ''}`}>
 				<div className="drawer-header">
 					<h2>Menu</h2>
-					<button className="drawer-close" onClick={onClose}>×</button>
+					<button className="drawer-close" onClick={onClose} aria-label="Close menu">
+						×
+					</button>
 				</div>
 
 				<nav className="drawer-content">
@@ -29,8 +31,12 @@ const Drawer = ({ isOpen, onClose, theme, onThemeToggle }) => {
 				</nav>
 
 				<div className="drawer-footer">
-					<button className="theme-toggle-drawer" onClick={onThemeToggle}>
-						{theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+					<button
+						className="theme-toggle-drawer"
+						onClick={onThemeToggle}
+						aria-label={themeToggleLabel}
+					>
+						{theme === 'light' ? 'Dark mode' : 'Light mode'}
 					</button>
 				</div>
 			</div>
@@ -38,4 +44,4 @@ const Drawer = ({ isOpen, onClose, theme, onThemeToggle }) => {
 	);
 };
 
-export default Drawer; 
+export default Drawer;

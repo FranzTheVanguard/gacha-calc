@@ -5,59 +5,74 @@ import './HomePage.css';
 const HomePage = () => {
 	useEffect(() => {
 		document.title = "Gacha Calculator";
-		// No need for cleanup function since this is the default title
 	}, []);
+
+	const gameCards = [
+		{
+			to: '/gbf',
+			title: 'Granblue Fantasy',
+			subtitle: 'Spark Calculator',
+			description: 'Track crystals and tickets against the 300-roll spark target.',
+		},
+		{
+			to: '/nikke',
+			title: 'Nikke',
+			subtitle: 'Limited Pull Calculator',
+			description: 'Convert gems and advanced vouchers into limited-banner pulls.',
+		},
+		{
+			to: '/hsr',
+			title: 'Honkai: Star Rail',
+			subtitle: 'Warp Calculator',
+			description: 'Estimate limited pulls and 90-warp 5-star pity coverage.',
+		},
+		{
+			to: '/zzz',
+			title: 'Zenless Zone Zero',
+			subtitle: 'Signal Search Calculator',
+			description: 'Convert film and tapes into limited searches and pity progress.',
+		},
+		{
+			to: '/ba',
+			title: 'Blue Archive',
+			subtitle: 'Spark Calculator',
+			description: 'Track pyroxenes and tickets against the 200-roll spark target.',
+		},
+		{
+			to: '/wuwa',
+			title: 'Wuthering Waves',
+			subtitle: 'Calculator Route',
+			description: 'Open the Wuthering Waves page and track future calculator support there.',
+		},
+	];
 
 	return (
 		<div className="home-page">
-			<div className="home-content">
-				<h1>Gacha Calculator</h1>
-				<p>All of your rolls, in one place.</p>
-
-				<div className="game-cards">
-					<Link to="/gbf" className="game-card-link">
-						<div className="game-card">
-							<h2>Granblue Fantasy</h2>
-							<p>Spark Calculator</p>
-						</div>
-					</Link>
-
-					<Link to="/wuwa" className="game-card-link">
-						<div className="game-card not-ready">
-							<h2>Wuthering Waves</h2>
-							<p>Coming soon...</p>
-						</div>
-					</Link>
-
-					<Link to="/nikke" className="game-card-link">
-						<div className="game-card">
-							<h2>Nikke</h2>
-							<p>Pull Calculator</p>
-						</div>
-					</Link>
-
-					<Link to="/hsr" className="game-card-link">
-						<div className="game-card">
-							<h2>Honkai: Star Rail</h2>
-							<p>Warp Calculator</p>
-						</div>
-					</Link>
-
-					<Link to="/zzz" className="game-card-link">
-						<div className="game-card not-ready">
-							<h2>Zenless Zone Zero</h2>
-							<p>Coming soon...</p>
-						</div>
-					</Link>
-
-					<Link to="/ba" className="game-card-link">
-						<div className="game-card">
-							<h2>Blue Archive</h2>
-							<p>Spark Calculator</p>
-						</div>
-					</Link>
+			<section className="home-hero">
+				<div className="home-hero-copy">
+					<p className="home-eyebrow">Resource tracker</p>
+					<h1>Gacha Calculator</h1>
+					<p className="home-subtitle">
+						Convert saved currency into pulls, spark progress, and limited-banner pity coverage.
+					</p>
 				</div>
-			</div>
+			</section>
+
+			<section className="home-grid" aria-label="Supported calculators">
+				{gameCards.map((game) => (
+					<Link key={game.title} to={game.to} className="game-card-link">
+						<div className="game-card">
+								<div className="game-card-header">
+									<div>
+										<h2>{game.title}</h2>
+										<p className="game-card-subtitle">{game.subtitle}</p>
+									</div>
+								</div>
+								<p className="game-card-description">{game.description}</p>
+						</div>
+					</Link>
+				))}
+			</section>
 		</div>
 	);
 };

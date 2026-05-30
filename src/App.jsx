@@ -20,7 +20,6 @@ function App() {
 	useEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme);
 		localStorage.setItem('theme', theme);
-		// Dispatch custom event for theme change
 		window.dispatchEvent(new Event('themeChange'));
 	}, [theme]);
 
@@ -28,7 +27,6 @@ function App() {
 		setTheme(theme === 'light' ? 'dark' : 'light');
 	};
 
-	// Define a function to add className for active NavLink
 	const getNavLinkClass = ({ isActive }) => isActive ? 'active-link' : '';
 
 	const navLinks = [
@@ -47,7 +45,6 @@ function App() {
 				<Navigation
 					theme={theme}
 					toggleTheme={toggleTheme}
-					isDrawerOpen={isDrawerOpen}
 					setIsDrawerOpen={setIsDrawerOpen}
 					getNavLinkClass={getNavLinkClass}
 					navLinks={navLinks}
@@ -57,8 +54,6 @@ function App() {
 					onClose={() => setIsDrawerOpen(false)}
 					theme={theme}
 					onThemeToggle={toggleTheme}
-					getNavLinkClass={getNavLinkClass}
-					navLinks={navLinks}
 				/>
 
 				<Routes>

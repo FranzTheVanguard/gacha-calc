@@ -1,21 +1,24 @@
 # Gacha Calc
 
-A web-based gacha currency and probability calculator built with React. It helps players track their resources and calculate pull probabilities across various popular gacha games.
+A web-based gacha currency tracker and pull calculator built with React. It helps players convert saved resources into pulls, spark progress, and limited-banner pity coverage across several gacha games.
 
 ## 🔗 Live Demo
 [https://franzthevanguard.github.io/gacha-calc/](https://franzthevanguard.github.io/gacha-calc/)
 
 ## 🎮 Supported Games
-Currently, the calculator supports the following games:
+Implemented calculators:
 - **GBF** - Granblue Fantasy
-- **Wuwa** - Wuthering Waves
 - **Nikke** - Goddess of Victory: Nikke
 - **HSR** - Honkai: Star Rail
 - **ZZZ** - Zenless Zone Zero
 - **BA** - Blue Archive
 
+Partial / placeholder:
+- **Wuwa** - Wuthering Waves
+
 ## ✨ Features
 - **Game-Specific Calculators**: Dedicated pages corresponding to the unique currency systems of each supported game.
+- **Persistent Inputs**: Saves entered values in `localStorage` so your resource totals survive refreshes.
 - **Dark/Light Mode**: Fully functional theme toggling system that saves your preference.
 - **Responsive Design**: Includes a navigation drawer for seamless use on both desktop and mobile screens.
 
@@ -23,6 +26,14 @@ Currently, the calculator supports the following games:
 - [React](https://reactjs.org/) (Create React App)
 - [React Router](https://reactrouter.com/) for navigation
 - Plain CSS for styling and theming
+
+## What Each Calculator Covers
+- **GBF**: Crystals, single tickets, 10x tickets, total rolls, spark percentage
+- **BA**: Pyroxenes, single tickets, 10x tickets, total rolls, spark percentage
+- **HSR**: Stellar Jades, Oneiric Shards, passes, limited pulls, estimated 5-star guarantees
+- **ZZZ**: Polychromes, Monochromes, tapes, limited searches, estimated S-rank guarantees
+- **Nikke**: Gems and advanced vouchers for limited-banner pull totals
+- **Wuwa**: Route scaffold only; calculator logic is not implemented yet
 
 ## 🚀 Running Locally
 

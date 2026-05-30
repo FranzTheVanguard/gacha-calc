@@ -14,7 +14,6 @@ const WuwaPage = () => {
 		<div className="wuwa-page">
 			<div className="wuwa-content">
 				<h1>Wuthering Waves Calculator</h1>
-				{/* Add Wuwa specific content here */}
 			</div>
 		</div>
 	);

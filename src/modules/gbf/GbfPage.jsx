@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './GbfPage.css';
-// import BackgroundImage from './components/BackgroundImage';
 import CrystalIcon from '../../assets/gbf_currency_crystal.jpg';
 
 const GbfPage = () => {

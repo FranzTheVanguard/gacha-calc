@@ -32,11 +32,9 @@ const HsrPage = () => {
 		const totalJades = (parseInt(stellarJades) || 0) + (parseInt(oneiricShards) || 0);
 		const jadeRolls = Math.floor(totalJades / 160);
 		const specialPassRolls = parseInt(specialPasses) || 0;
-		// Standard tickets (singleTickets) should not count towards limited guarantees
 
 		const limitedWarps = jadeRolls + specialPassRolls;
 		setTotalLimitedWarps(limitedWarps);
-
 		setGuarantees((limitedWarps / 90).toFixed(2));
 	}, [stellarJades, oneiricShards, singleTickets, specialPasses]);
 
@@ -95,7 +93,7 @@ const HsrPage = () => {
 
 			<GachaCard title="Limited Warps Calculations" isResults>
 				<ResultBox label="Limited Pulls" value={totalLimitedWarps} />
-				<ResultBox label="Limited 5★ Guarantees" value={guarantees} highlightType="secondary" />
+				<ResultBox label="Limited 5-star Guarantees" value={guarantees} highlightType="secondary" />
 			</GachaCard>
 		</GachaLayout>
 	);
